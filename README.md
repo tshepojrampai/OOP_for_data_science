@@ -1,1 +1,2 @@
-The multivariate Regression Model 
+OOP for data science with multivariate regression
+ 
