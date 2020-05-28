@@ -1,11 +1,21 @@
+from sklearn.metrics import mean_squared_error as mse
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import scipy.stats as scipy
+
 # Class: ErrorCalculator 
 class ErrorCalculator:
-
-    def __init__(self, y, y_pred):
-
-        self.y          =   np.array(y)       
-        self.y_pred     =   np.array(y_pred)  
-
+    
+    
+    def __init__(self, residuals, standard_res, mse, rmse, y, y_pred):
+        self.residuals = residuals
+        self.standard_res = standard_res
+        self.mse = mse
+        self.rmse = rmse
+        self.y = np.array(y)
+        self.y_pred = np.array(y_pred)
 
     def get_residuals(self):
 
@@ -58,12 +68,12 @@ class Plotter():
 # Class:  histogram plotter
 class HistogramPlotter(Plotter):
     def __init__(self, y_test,y_pred):
-        Plotter.__init__(self, y_test, y_pred)
+        super().__init__(self, y_test, y_pred)
 
 
 class ScatterPlotter(Plotter):
     def __init__(self, y_test, y_pred):
-        Plotter.__init__(self, y_test, y_pred)
+        super().__init__(self, y_test, y_pred)
 
     def plot(self):
         chart = pd.DataFrame({"y_test": self.y_test, "y_predicted": self.y_pred})
