@@ -1,9 +1,12 @@
-from sklearn.metrics import mean_squared_error as mse
-import numpy as np
 import pandas as pd
+import numpy as np 
 import seaborn as sns
 import matplotlib.pyplot as plt
-import scipy.stats as scipy
+from sklearn.metrics import mean_squared_error as mse
+from statsmodels.tools.eval_measures import rmse
+
+
+
 
 # Class: ErrorCalculator 
 class ErrorCalculator:
